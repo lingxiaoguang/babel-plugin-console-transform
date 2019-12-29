@@ -1,50 +1,40 @@
 <div align="center">
-  <a href="https://gridea.dev">
+  <a href="#">
     <img src="public/app-icons/icon.jpg"  width="80px" height="80px">
   </a>
   <h1 align="center">
-    Gridea
+    console-transform
   </h1>
-  <h3 align="center">
-    A static blog writing client
-  </h3>
-
-  [Download](https://github.com/getgridea/gridea/releases) | [Homepage](http://hvenotes.fehey.com/)
-
-  <a href="https://github.com/getgridea/gridea/releases/latest">
-    <img src="https://img.shields.io/github/release/getgridea/gridea.svg?style=flat-square" alt="">
-  </a>
-
-  <a href="https://github.com/getgridea/gridea/blob/master/LICENSE">
-    <img src="https://img.shields.io/github/license/getgridea/gridea.svg?style=flat-square" alt="">
-  </a>
-  
-  <a href="https://github.com/getgridea/gridea/releases/latest">
-    <img alt="GitHub All Releases" src="https://img.shields.io/github/downloads/getgridea/gridea/total.svg?color=%2312b886&style=flat-square">
-  </a>
-
 </div>
 
-<div align="center">
-  <img src="gridea-app-en.png">
+**:rainbow:一个生产环境删除console，开发环境扩展console支持打印颜色和代码位置的babel插件**
 
-</div>
-# babel-plugin-console-transform
 
-:rainbow:babel插件，`生产环境`下可以删除所有的console，`开发环境`下可以使用扩展的console api，比如打印颜色，而且还会输出代码文件和行数列数。
+🌰源码：
 
-举个栗子🌰
-
->源码：
 ![](./public/source-code.jpg)
-生产环境：
+
+🌰生产环境：
+
 ![](./public/production-env-code.jpg)
-非生产环境：
+
+🌰非生产环境：
+
 ![](./public/other-env-code.jpg)
-效果：
+
+:film_projector:效果：
+
 ![](./public/other-env.jpg)
 
-## 安装
+## 特性 :grinning:
+
+:x: 生产环境删除所有console，也可以通过glob字符串或者函数来自定义删除逻辑
+
+:rainbow: 非生产环境可以扩展console方法，默认提供了几种console方法，green、blue、orange、red、bgGreen、bgOrange、bgBlue、bgRed
+
+🏷️ 扩展的方法会自动添加代码文件和行列数，如 `/src/scripts/inde.js (10:5)`
+
+## 安装 :kissing_smiling_eyes:
 
 ```
 npm install --save-dev babel-plugin-console-transform
@@ -54,7 +44,7 @@ or
 yarn add --dev babel-plugin-console-transform
 ```
 
-## 使用
+## 使用 :thinking:
 
 在.babelrc.js引入插件并配置
 
@@ -67,10 +57,10 @@ module.exports = {
             consoleTransformPlugin,
             {
                 env: 'production',
-                removeMethods: ["*g*"],
+                removeMethods: ["*g*", (args) => args.includes('xxxx')],
                 additionalStyleMethods: {
-                    'success': 'padding:20px; color: blue;background:pink;',
-                    'danger': 'padding:30px;background:red; font-size:30px; color:#fff;'
+                    'success': 'padding:10px; color:#fff;background:green;',
+                    'danger': 'padding:20px; background:red;font-size:30px; color:#fff;'
                 }
             }
         ]
@@ -78,7 +68,7 @@ module.exports = {
 }
 ```
 
-## 配置项说明
+## 配置项 :sunglasses:
 
 | **配置项名称** | **是否必须** | **含义** | **类型** | **举例** |  
 | --- | --- | --- | --- | --- |  
@@ -86,12 +76,15 @@ module.exports = {
 | removeMethods  | 否 | production下删除的方法，默认删除全部 | Array<string \| Function> |  ['log', 'warn'], [(args) => args.includes('dont remove'), 'log']
 | additionalStyleMethods | 否  | 额外添加的console方法 | {[key: string]: string}|  {'success': 'background: green;'}|
 
-其他说明：
+### 其他说明：:unamused:
 
-1. `env`是用于切换环境，生产环境下会删除console.xxx()，开发环境下会扩展一些方法，配置时可以使用 process.env.NODE_ENV指定
-2. `removeMethods`之后在env为production时才会生效，支持[glob模式](https://github.com/mrmlnc/fast-glob#basic-syntax)的字符串，比如 \*\*g**, **bg{Red,Green}等，也支持函数，参数为console方法的参数，用于一些需要根据参数确定是否删除console的场景。
-3. `additionalStyleMethods`可以扩展一些方法，而且可以覆盖原生的log等方法
-4. 所有扩展的方法都会额外打印文件路径和代码所在行列数
+ :tomato: `env` 配置时可以使用 `process.env.NODE_ENV` 指定
+
+ :kiwi_fruit: `removeMethods` 在 env 为 production 时才会生效，支持 [glob模式](https://github.com/mrmlnc/fast-glob#basic-syntax) 的字符串，比如 `\*\*g**`, `**bg{Red,Green}` 等，也支持函数，参数为console方法的参数，用于一些需要根据参数确定是否删除console的场景。
+
+ :peach: `additionalStyleMethods`可以扩展一些方法，而且可以覆盖原生的log等方法
+
+ :grapes: 所有扩展的方法都会额外打印文件路径和代码所在行列数
    
 
    
