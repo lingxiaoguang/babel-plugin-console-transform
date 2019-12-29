@@ -1,6 +1,6 @@
 import { match as mm } from 'minimatch';
 import { PluginOptions } from './types';
-import validateOptions from 'schema-utils';
+import * as validateOptions from 'schema-utils';
 
 const isMatch = (
   removeMethods: Array<string | Function>,
@@ -10,7 +10,7 @@ const isMatch = (
   let isRemove = false;
   for (let i = 0; i < removeMethods.length; i++) {
     if (typeof removeMethods[i] === 'function') {
-      isRemove = (removeMethods[i] as Function)(args);
+      isRemove = (removeMethods[i] as Function)(args) ? true : isRemove;
     } else if (mm([methodName], removeMethods[i] as string).length > 0) {
       isRemove = true;
     }

@@ -1,6 +1,6 @@
 {
   "name": "babel-plugin-console-transform",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "一个生产环境删除console，开发环境扩展console支持打印颜色和代码位置的babel插件",
   "main": "./dist/index.js",
   "types": "./dist/types",
