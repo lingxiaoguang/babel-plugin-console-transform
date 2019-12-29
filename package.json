@@ -9,6 +9,9 @@
     "build": "rm -rf ./dist && tsc -b ./tsconfig.src.json",
     "lint": "eslint ./{src,test}/**/*.ts --fix"
   },
+  "files": [
+      "./dist/"
+  ],
   "keywords": [
     "babel-plugin",
     "babel",
