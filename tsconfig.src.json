@@ -1,6 +1,7 @@
 {
     "extends": "./tsconfig.json",
     "compilerOptions": {
+        "module": "CommonJS",
         "types": ["babel__core", "babel__traverse", "node"],
         "lib": ["es2015"],
         "outDir": "./dist",

@@ -1,6 +1,7 @@
 import { match as mm } from 'minimatch';
-import * as validateOptions from 'schema-utils';
 import { PluginOptions } from './types';
+const validateOptions = require('schema-utils');
+
 const isMatch = (
   removeMethods: Array<string | Function>,
   methodName: string,

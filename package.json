@@ -1,5 +1,5 @@
 {
-  "name": "@qnpm/babel-plugin-console-transform",
+  "name": "babel-plugin-console-transform",
   "version": "0.0.1",
   "description": "babel插件，生产环境下可以删除所有的console，开发环境下可以使用扩展的console api，比如打印颜色，而且还会输出代码文件和行数列数。",
   "main": "./dist/index.js",
@@ -15,7 +15,7 @@
     "transform",
     "console"
   ],
-  "author": "xuguang.zhai@qunar.com",
+  "author": "lingxiao_guang@foxmail.com",
   "license": "ISC",
   "lint-staged": {
     "*.{ts,js}": [
@@ -25,23 +25,22 @@
   },
   "husky": {
     "hooks": {
-        "pre-commit": "lint-staged"
+      "pre-commit": "lint-staged"
     }
   },
   "devDependencies": {
     "@types/babel__core": "^7.1.3",
     "@types/babel__traverse": "^7.0.8",
+    "@types/chai": "^4.2.7",
     "@types/json-schema": "^7.0.4",
     "@types/minimatch": "^3.0.3",
     "@types/mocha": "^5.2.7",
     "@types/node": "^13.1.1",
-    "@types/schema-utils": "^2.4.0",
-    "@types/chai": "^4.2.7",
-    "babel-eslint": "^10.0.3",
-    "eslint": "^6.8.0",
     "@typescript-eslint/eslint-plugin": "^2.13.0",
     "@typescript-eslint/parser": "^2.13.0",
+    "babel-eslint": "^10.0.3",
     "chai": "^4.2.0",
+    "eslint": "^6.8.0",
     "eslint-config-prettier": "^6.9.0",
     "eslint-plugin-prettier": "^3.1.2",
     "prettier": "^1.19.1",
