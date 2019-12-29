@@ -1,16 +1,18 @@
 {
   "name": "babel-plugin-console-transform",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "一个生产环境删除console，开发环境扩展console支持打印颜色和代码位置的babel插件",
   "main": "./dist/index.js",
   "types": "./dist/types",
+  "homepage": "https://github.com/lingxiaoguang/babel-plugin-console-transform",
   "scripts": {
     "test": "ts-mocha ./test/**/*.test.ts -b ./tsconfig.test.json",
     "build": "rm -rf ./dist && tsc -b ./tsconfig.src.json",
     "lint": "eslint ./{src,test}/**/*.ts --fix"
   },
   "files": [
-    "./dist/"
+    "dist",
+    "public"
   ],
   "keywords": [
     "babel-plugin",

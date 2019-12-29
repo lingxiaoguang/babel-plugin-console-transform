@@ -90,5 +90,5 @@ module.exports = {
 欢迎任何形式的贡献。你可以用 [pull requests](https://github.com/lingxiaoguang/babel-plugin-console-transform/pulls) 或 [issues](https://github.com/lingxiaoguang/babel-plugin-console-transform/issues) 的方式提交任何想法。  
 
 ## License
-[MIT](https://github.com/getgridea/gridea/blob/master/LICENSE). Copyright (c) 2019 lingxiaoguang
+[MIT](https://github.com/lingxiaoguang/babel-plugin-console-transform/blob/master/LICENSE). Copyright (c) 2019 lingxiaoguang
    
