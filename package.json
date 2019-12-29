@@ -24,7 +24,9 @@
     ]
   },
   "husky": {
-    "pre-commit": "lint-staged"
+    "hooks": {
+        "pre-commit": "lint-staged"
+    }
   },
   "devDependencies": {
     "@types/babel__core": "^7.1.3",
