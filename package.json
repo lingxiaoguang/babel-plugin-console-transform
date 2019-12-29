@@ -1,7 +1,7 @@
 {
   "name": "babel-plugin-console-transform",
   "version": "0.0.1",
-  "description": "babel插件，生产环境下可以删除所有的console，开发环境下可以使用扩展的console api，比如打印颜色，而且还会输出代码文件和行数列数。",
+  "description": "一个生产环境删除console，开发环境扩展console支持打印颜色和代码位置的babel插件",
   "main": "./dist/index.js",
   "types": "./dist/types",
   "scripts": {
