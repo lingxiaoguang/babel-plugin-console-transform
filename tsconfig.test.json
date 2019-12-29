@@ -1,0 +1,10 @@
+{
+    "extends": "./tsconfig.json",
+    "compilerOptions": {
+        "types": ["babel__core", "babel__traverse", "node", "mocha", "chai"],
+        "lib": ["es2015"]
+    },
+    "include": [
+        "./test/**/*.ts"
+    ]
+}

@@ -5,8 +5,9 @@
   "main": "./dist/index.js",
   "types": "./dist/types",
   "scripts": {
-    "test": "ts-mocha ./test/**/*.test.ts",
-    "build": "rm -rf ./dist && tsc"
+    "test": "ts-mocha ./test/**/*.test.ts -b ./tsconfig.test.json",
+    "build": "rm -rf ./dist && tsc -b ./tsconfig.src.json",
+    "lint": "eslint ./{src,test}/**/*.ts --fix"
   },
   "keywords": [
     "babel-plugin",
@@ -16,6 +17,15 @@
   ],
   "author": "xuguang.zhai@qunar.com",
   "license": "ISC",
+  "lint-staged": {
+    "*.{ts,js}": [
+      "npm run lint",
+      "git add ."
+    ]
+  },
+  "husky": {
+    "pre-commit": "lint-staged"
+  },
   "devDependencies": {
     "@types/babel__core": "^7.1.3",
     "@types/babel__traverse": "^7.0.8",
@@ -23,13 +33,23 @@
     "@types/minimatch": "^3.0.3",
     "@types/mocha": "^5.2.7",
     "@types/node": "^13.1.1",
-    "@types/schema-utils": "^2.4.0"
+    "@types/schema-utils": "^2.4.0",
+    "@types/chai": "^4.2.7",
+    "babel-eslint": "^10.0.3",
+    "eslint": "^6.8.0",
+    "@typescript-eslint/eslint-plugin": "^2.13.0",
+    "@typescript-eslint/parser": "^2.13.0",
+    "chai": "^4.2.0",
+    "eslint-config-prettier": "^6.9.0",
+    "eslint-plugin-prettier": "^3.1.2",
+    "prettier": "^1.19.1",
+    "ts-mocha": "^6.0.0",
+    "typescript": "^3.5.3"
   },
   "dependencies": {
+    "@babel/core": "^7.7.7",
     "@babel/types": "^7.7.4",
-    "babel-core": "^6.26.3",
     "minimatch": "^3.0.4",
-    "schema-utils": "^2.6.1",
-    "ts-mocha": "^6.0.0"
+    "schema-utils": "^2.6.1"
   }
 }
