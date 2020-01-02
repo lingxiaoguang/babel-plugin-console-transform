@@ -48,14 +48,17 @@ const assertFileTransformResultEqual = (
     outputFilePath,
   );
 
-  transform(actualFilePath, pluginOptions, res => {
-    assert.equal(
-      res.code,
-      fs.readFileSync(expectedFilePath, {
-        encoding: 'utf-8',
-      }),
-    );
+  const res = transformFileSync(actualFilePath, {
+    babelrc: false,
+    configFile: false,
+    plugins: [[consoleTransformPlugin, pluginOptions]],
   });
+  assert.equal(
+    res.code,
+    fs.readFileSync(expectedFilePath, {
+      encoding: 'utf-8',
+    }),
+  );
 };
 
 export { assertFileTransformThrows, assertFileTransformResultEqual };
