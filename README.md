@@ -85,6 +85,9 @@ module.exports = {
  :peach: `additionalStyleMethods`可以扩展一些方法，而且可以覆盖原生的log等方法
 
  :grapes: 所有扩展的方法都会额外打印文件路径和代码所在行列数
+## 相关文章
+
+[如何用 typescript 写一个处理 console 的 babel 插件](https://mp.weixin.qq.com/s?src=11&timestamp=1579079212&ver=2098&signature=Ayp3NWXgckE-xYsbXn9iWFZr*NKdkym7cZI5-s39Ip5a5Ldh8on7d6AM9RhO1ceClpnDSEIQcHohhyTa*xoZ4-jnP0cxFopjQFoDnYOABXhyr-V8U*SNXV4TCxXsZYC1&new=1)
    
 ## 贡献 :heart:
 欢迎任何形式的贡献。你可以用 [pull requests](https://github.com/lingxiaoguang/babel-plugin-console-transform/pulls) 或 [issues](https://github.com/lingxiaoguang/babel-plugin-console-transform/issues) 的方式提交任何想法。  
